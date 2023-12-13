@@ -69,6 +69,11 @@ seeds = "eb24be3ac35037260b91906000606442b0e0c803@192.168.0.182:26656"
 
 > minid start
 
+```bash
+minid config set client chain-id demo
+minid config set client keyring-backend test
+```
+
 9. add validator
 
 > minid comet show-validator
@@ -77,9 +82,9 @@ seeds = "eb24be3ac35037260b91906000606442b0e0c803@192.168.0.182:26656"
 
 ```json
 {
- "pubkey": {"@type":"/cosmos.crypto.ed25519.PubKey","key":"SAWQqJylFYF796vRp0T/xWUcWaOk8EcGSMl5syZd680="},
- "amount": "10000000mini",
- "moniker": "myvalidator2",
+ "pubkey": {"@type":"/cosmos.crypto.ed25519.PubKey","key":"xGlA/3aa/9812EwB30rf0PQzgu++qPPHWEp/MT+Vgpo="},
+ "amount": "1000000mini",
+ "moniker": "myvalidator3",
  "commission-rate": "0.1",
  "commission-max-rate": "0.2",
  "commission-max-change-rate": "0.01",
@@ -90,7 +95,14 @@ seeds = "eb24be3ac35037260b91906000606442b0e0c803@192.168.0.182:26656"
 
 10. start third minid node, and  create-validator
 
+```bash
+minid config set client chain-id demo
+minid config set client keyring-backend test
+```
+
 > minid start --p2p.seeds ddde1ff60f2e7a82d6aaf3512f91919662605960@172.17.0.2:26656,619a20b42812e4e156795d66af0738a09fafa975@172.17.0.1:26656  |tee -a minid.log
+> minid start --p2p.seeds 619a20b42812e4e156795d66af0738a09fafa975@172.17.0.1:26656,a5e695453ea30aa4af9fb61609b330f28ce45ca8@172.17.0.3:26656  |tee -a minid.log
+> minid start --p2p.seeds ddde1ff60f2e7a82d6aaf3512f91919662605960@172.17.0.2:26656,a5e695453ea30aa4af9fb61609b330f28ce45ca8@172.17.0.3:26656  |tee -a minid.log
 
 
 * At least three nodes are started, three validator are staking, three nodes are connected (by p2p.seeds), if one of nodes is down, the other two nodes are available
