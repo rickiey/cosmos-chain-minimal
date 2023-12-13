@@ -54,6 +54,10 @@ height: 946 format: 3 chunks: 1
 
 7. add seeds `.minid/config/config.toml`
 
+or
+
+> minid start --p2p.seeds 619a20b42812e4e156795d66af0738a09fafa975@172.17.0.1:26656  |tee -a minid.log
+
 ```json
 [p2p]
 laddr = "tcp://0.0.0.0:26656"
@@ -61,7 +65,6 @@ external_address = ""
 seeds = "eb24be3ac35037260b91906000606442b0e0c803@192.168.0.182:26656"
 
 ```
-
 8. start second minid node
 
 > minid start
@@ -86,5 +89,8 @@ seeds = "eb24be3ac35037260b91906000606442b0e0c803@192.168.0.182:26656"
 ```
 
 10. start third minid node, and  create-validator
+
+> minid start --p2p.seeds ddde1ff60f2e7a82d6aaf3512f91919662605960@172.17.0.2:26656,619a20b42812e4e156795d66af0738a09fafa975@172.17.0.1:26656  |tee -a minid.log
+
 
 * At least three nodes are started, three validator are staking, three nodes are connected (by p2p.seeds), if one of nodes is down, the other two nodes are available
