@@ -69,17 +69,22 @@ seeds = "eb24be3ac35037260b91906000606442b0e0c803@192.168.0.182:26656"
 9. add validator
 
 > minid comet show-validator
-
+> minid tx bank send mini1577sjzu9z522tc9jv2hgn2kckztf3cln22m9lr mini1wtnf95x9ywdhv984fdpfs0ya0k074wf3ytkzyf 200000000mini
 > minid tx staking create-validator ./validator.json --from mini1wtnf95x9ywdhv984fdpfs0ya0k074wf3ytkzyf
 
 ```json
 {
- "pubkey": {"@type":"/cosmos.crypto.ed25519.PubKey","key":"Md3c0aY2ZHa+Jpc8NZBs4+OQHbXfc/NmgWFAUh2/RYE="},
- "amount": "1000000mini",
- "moniker": "myvalidator",
+ "pubkey": {"@type":"/cosmos.crypto.ed25519.PubKey","key":"SAWQqJylFYF796vRp0T/xWUcWaOk8EcGSMl5syZd680="},
+ "amount": "10000000mini",
+ "moniker": "myvalidator2",
  "commission-rate": "0.1",
  "commission-max-rate": "0.2",
  "commission-max-change-rate": "0.01",
  "min-self-delegation": "1"
 }
+                                                                                                                                                                
 ```
+
+10. start third minid node, and  create-validator
+
+* At least three nodes are started, three validator are staking, three nodes are connected (by p2p.seeds), if one of nodes is down, the other two nodes are available
